@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .score-box { 
+            background: #f8f9fa; padding: 30px; text-align: center; 
+            border-radius: 10px; margin-bottom: 30px; border: 1px solid #ddd;
+        }
+        .score { font-size: 60px; font-weight: bold; margin: 10px 0; }
+        .high { color: #27ae60; }   /* Green */
+        .medium { color: #f39c12; } /* Orange */
+        .low { color: #c0392b; }    /* Red */
+        
+        .section { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        .missing-tag { 
+            display: inline-block; background: #ffebee; color: #c62828; 
+            padding: 8px 15px; margin: 5px; border-radius: 20px; font-weight: bold;
+        }
+        .advice-box { background: #e8f6f3; padding: 15px; border-left: 5px solid #1abc9c; color: #2c3e50; }
+        .btn { 
+            display: inline-block; padding: 10px 20px; background: #34495e; 
+            color: white; text-decoration: none; border-radius: 5px; 
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 Analysis Report</h1>
+
+    <div class="score-box">
+        <div>Match Probability</div>
+        <div class="score {% if score > 75 %}high{% elif score > 50 %}medium{% else %}low{% endif %}">
+            {{ score }}%
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>💡 AI Recruiter Feedback</h3>
+        <div class="advice-box">
+            "{{ advice }}"
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>⚠️ Critical Missing Skills</h3>
+        {% if missing %}
+            {% for word in missing %}
+                <span class="missing-tag">{{ word }}</span>
+            {% endfor %}
+        {% else %}
+            <p>Great job! No critical skills missing.</p>
+        {% endif %}
+    </div>
+
+    <br>
+    <div class="section">
+        <h3>✨ AI Optimized Summary</h3>
+        <p style="color: #666; font-size: 0.9em;">Copy this to the top of your resume to increase your score:</p>
+        
+        <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; border: 1px dashed #2196f3; position: relative;">
+            <p style="font-style: italic; color: #2c3e50; margin: 0;">
+                "{{ summary }}"
+            </p>
+        </div>
+    </div>
+    <a href="/" class="btn">⬅️ Scan Another Resume</a>
+
+</body>
+</html>

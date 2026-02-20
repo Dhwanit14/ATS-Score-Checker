@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Matcher</title>
+    <style>
+        /* 1. Basic Page Styles */
+        body { font-family: 'Segoe UI', sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; background: #f4f6f8; }
+        .container { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+        
+        /* 2. Form Elements */
+        textarea { width: 100%; height: 150px; margin-bottom: 20px; padding: 15px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; resize: vertical; box-sizing: border-box; }
+        textarea:focus { border-color: #3498db; outline: none; }
+        
+        .file-upload { margin-bottom: 30px; padding: 20px; background: #f8f9fa; border: 2px dashed #cbd5e0; border-radius: 8px; text-align: center; }
+        
+        button { 
+            width: 100%; padding: 15px; background: #2ecc71; color: white; 
+            border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; 
+            transition: background 0.3s;
+        }
+        button:hover { background: #27ae60; }
+
+        /* 3. THE LOADING SPINNER (Hidden by default) */
+        .loading-overlay {
+            display: none; /* Hidden normally */
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            z-index: 1000;
+            flex-direction: column; align-items: center; justify-content: center;
+        }
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px; height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .loading-text { font-size: 24px; color: #333; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🚀 AI Resume Scanner</h2>
+        
+        <form action="/analyze" method="post" enctype="multipart/form-data" onsubmit="showLoading()">
+            
+            <label><b>1. Paste Job Description (JD):</b></label>
+            <textarea name="jd" placeholder="Paste the job description here..." required></textarea>
+            
+            <label><b>2. Upload Resume (PDF/DOCX):</b></label>
+            <div class="file-upload">
+                <input type="file" name="resume" accept=".pdf,.docx" required>
+            </div>
+            
+            <button type="submit">Analyze Match</button>
+        </form>
+    </div>
+
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Analyzing Resume...</div>
+        <p>This may take 5-10 seconds.</p>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
