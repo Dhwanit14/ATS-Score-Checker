@@ -18,8 +18,8 @@ An intelligent application designed to bridge the gap between job seekers and Ap
 📋 How to Run (Easy Steps)
 
 1. Clone the Repository
-```bash
-git clone [https://github.com/your-username/jd-matcher-pro.git](https://github.com/your-username/jd-matcher-pro.git)
+bash
+git clone [https://github.com/Dhwanit14/ATS-Score-Checker.git](https://github.com/Dhwanit14/ATS-Score-Checker.git)
 cd jd-matcher-pro
 
 2. Install Dependencies
