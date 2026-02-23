@@ -9,15 +9,18 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.requests import Request
 from google import genai
+from dotenv import load_dotenv # Import this to read .env
+load_dotenv() # This loads the variables from your .env file
+
 
 # --- 1. SETUP ---
-# PASTE YOUR KEY HERE
-API_KEY = "YOUR_GEMINI_KEY" 
+# It wll get the key from the environment variable
+API_KEY = os.getenv("GEMINI_API_KEY") 
 
 # Initialize the client
 client = genai.Client(api_key=API_KEY)
 
-app = FastAPI()  # <--- THIS WAS MISSING!
+app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # --- 2. HELPER FUNCTIONS ---
@@ -82,7 +85,7 @@ def analyze_with_gemini(resume_text: str, jd_text: str):
                 return json.loads(clean_json)
                 
         except Exception as e:
-            # Check for that 503 "High Demand" error we saw earlier
+            # Check for that 503 "High Demand" error
             if "503" in str(e) and attempt < 2:
                 print(f"Google is busy, retrying in 2 seconds... (Attempt {attempt+1})")
                 time.sleep(2)
