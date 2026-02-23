@@ -18,7 +18,7 @@ An intelligent application designed to bridge the gap between job seekers and Ap
 📋 How to Run (Easy Steps)
 
 1. Clone the Repository
-```bash
+bash
 git clone [https://github.com/your-username/jd-matcher-pro.git](https://github.com/your-username/jd-matcher-pro.git)
 cd jd-matcher-pro
 
