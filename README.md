@@ -34,8 +34,6 @@ An intelligent application designed to bridge the gap between job seekers and Ap
 - uvicorn app:app --reload
 - Open your browser and navigate to http://127.0.0.1:8000
 
-
-
 🏗️ Architecture
 The application follows a modern server-side rendering (SSR) pattern:
 
