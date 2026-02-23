@@ -18,23 +18,21 @@ An intelligent application designed to bridge the gap between job seekers and Ap
 📋 How to Run (Easy Steps)
 
 1. Clone the Repository
-bash
-git clone [Github Repo Link](https://github.com/Dhwanit14/ATS-Score-Checker)
-cd jd-matcher-pro
+- git clone [Github Repo Link](https://github.com/Dhwanit14/ATS-Score-Checker)
+- cd jd-matcher-pro
 
 2. Install Dependencies
-Bash
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 3. Set Up Your API Key
-Get a Key: Go to the [Google AI Studio](https://aistudio.google.com/) and create a free Gemini API key.
-Create File: Create a file named .env in the project folder.
-Add Key: Open the .env file and paste your key like this:
-    GEMINI_API_KEY=your_actual_key_here
+- Get a Key: Go to the [Google AI Studio](https://aistudio.google.com/) and create a free Gemini API key.
+- Create File: Create a file named .env in the project folder.
+- Add Key: Open the .env file and paste your key like this:
+   > GEMINI_API_KEY=your_actual_key_here
 
-4. Launch the Application : terminal
-uvicorn app:app --reload
-Open your browser and navigate to http://127.0.0.1:8000
+4. Launch the Application : In python terminal
+- uvicorn app:app --reload
+- Open your browser and navigate to http://127.0.0.1:8000
 
 
 
